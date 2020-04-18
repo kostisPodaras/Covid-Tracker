@@ -1,7 +1,14 @@
 import React from "react";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const Cards = () => {
-  return <div>Cards component</div>;
+import styles from "./styles";
+
+type Props = {
+  classes: Object,
 };
 
-export default Cards;
+const Cards = ({ classes }: Props) => {
+  return <div>Card component</div>;
+};
+
+export default withStyles(styles)(Cards);
