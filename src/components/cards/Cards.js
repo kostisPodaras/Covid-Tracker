@@ -11,10 +11,10 @@ type Props = {
 
 const Cards = ({ classes }: Props) => {
   const { confirmed, recovered, deaths, lastUpdate } = useSelector(
-    (state) => state.data
+    (state) => state.data.data
   );
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" className={classes.container}>
       <CustomCard
         date={lastUpdate}
         cases={confirmed?.value}

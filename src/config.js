@@ -1,3 +1,4 @@
-const API = "https://covid19.mathdro.id/api";
+const DATA_API = "https://covid19.mathdro.id/api";
+const DAILY_DATA_API = `${DATA_API}/daily`;
 
-export { API };
+export { DATA_API, DAILY_DATA_API };

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { CountryPicker, Chart, Cards } from "./components";
 import { fetchData } from "./redux/data/dataAction";
+import { fetchDailyData } from "./redux/daily-data/dailyDataAction";
 import { useDispatch } from "react-redux";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -15,6 +16,7 @@ const App = ({ classes }: Props) => {
 
   useEffect(() => {
     dispatch(fetchData());
+    dispatch(fetchDailyData());
   }, []);
 
   return (

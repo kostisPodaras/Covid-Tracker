@@ -4,7 +4,7 @@ import {
   FETCH_DATA_SUCCESS,
 } from "./dataType";
 
-import { API } from "../../config";
+import { DATA_API } from "../../config";
 
 const fetchDataRequest = () => ({
   type: FETCH_DATA_REQUEST,
@@ -22,7 +22,7 @@ const fetchDataFailure = () => ({
 const fetchData = () => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
-    const request = await fetch(API);
+    const request = await fetch(DATA_API);
     const fetchedData = await request.json();
     dispatch(fetchDataSuccess(fetchedData));
   };

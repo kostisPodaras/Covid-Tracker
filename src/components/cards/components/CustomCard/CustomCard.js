@@ -5,7 +5,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import CountUp from "react-countup";
-import classNames from "classnames";
 
 import { dateFormat } from "../../../../utils";
 import styles from "./styles";
@@ -20,7 +19,7 @@ type Props = {
 const CustomCard = ({ classes, status, description, cases, date }: Props) => {
   return (
     <Grid item xs={12} md={3} className={classes.container}>
-      <Card>
+      <Card classes={{ root: classes.rootCard }}>
         <CardContent>
           <Typography>{status}</Typography>
           <Typography variant="h5">
