@@ -6,16 +6,19 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 import styles from "./styles";
 
-const App = () => {
+type Props = {
+  classes: Object,
+};
+
+const App = ({ classes }: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchData());
-    console.log("effect was called");
   }, []);
 
   return (
-    <div>
+    <div className={classes.container}>
       <Cards />
       <CountryPicker />
       <Chart />
