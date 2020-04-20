@@ -36,7 +36,7 @@ const Chart = ({ classes }: Props) => {
     labels: ["Infected", "Recovered", "Deaths"],
     datasets: [
       {
-        label: "Number of People Affected",
+        label: "Number of People",
         backgroundColor: [
           "rgba(0, 0, 255, 0.5",
           "rgba(0, 255, 0, 0.5",
