@@ -1,10 +1,29 @@
-import { SELECT_COUNTRY } from "./selectedCountryType";
+import {
+  FETCH_COUNTRY_REQUEST,
+  FETCH_COUNTRY_SUCESS,
+  FETCH_COUNTRY_FAILURE,
+} from "./selectedCountryType";
 
-const selectCountry = (country) => {
-  return {
-    type: SELECT_COUNTRY,
-    payload: country,
+const fetchCountryRequest = () => ({
+  type: FETCH_COUNTRY_REQUEST,
+});
+
+const fetchCountrySucess = (country) => ({
+  type: FETCH_COUNTRY_SUCESS,
+  payload: country,
+});
+
+const fetchCountryFailure = () => ({
+  type: FETCH_COUNTRY_FAILURE,
+});
+
+const fetchCountry = (api) => {
+  return async (dispatch) => {
+    dispatch(fetchCountryRequest());
+    const request = await fetch(api);
+    const response = await request.json();
+    dispatch(fetchCountrySucess(response));
   };
 };
 
-export default selectCountry;
+export default fetchCountry;

@@ -21,7 +21,7 @@ const fetchCountriesFailure = () => ({
 const fetchCountries = () => {
   return async (dispatch) => {
     dispatch(fetchCountriesRequest());
-    dispatch(fetchCountriesSucess);
+    // dispatch(fetchCountriesSucess);
     const request = await fetch(COUNTRIES_API);
     const { countries } = await request.json();
     dispatch(fetchCountriesSucess(countries));
