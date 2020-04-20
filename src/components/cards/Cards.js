@@ -3,6 +3,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import { CustomCard } from "./components";
 import { useSelector } from "react-redux";
+import { isObjectEmpty } from "../../utils";
 import styles from "./styles";
 
 type Props = {
@@ -23,9 +24,7 @@ const Cards = ({ classes }: Props) => {
         date={lastUpdate}
         //check if i have selected a country, if yes i render her stats else the global
         cases={
-          !!Object.keys(country).length
-            ? country.confirmed.value
-            : confirmed?.value
+          isObjectEmpty(country) ? country.confirmed.value : confirmed?.value
         }
         status="Infected"
         description="active"
@@ -33,18 +32,14 @@ const Cards = ({ classes }: Props) => {
       <CustomCard
         date={lastUpdate}
         cases={
-          !!Object.keys(country).length
-            ? country.recovered.value
-            : recovered?.value
+          isObjectEmpty(country) ? country.recovered.value : recovered?.value
         }
         status="Recovered"
         description="recovered"
       />
       <CustomCard
         date={lastUpdate}
-        cases={
-          !!Object.keys(country).length ? country.deaths.value : deaths?.value
-        }
+        cases={isObjectEmpty(country) ? country.deaths.value : deaths?.value}
         status="Deaths"
         description="death"
       />

@@ -1,6 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
+import { isObjectEmpty } from "../../utils";
 
 import styles from "./styles";
 import { useSelector } from "react-redux";
@@ -11,8 +12,9 @@ type Props = {
 
 const Chart = ({ classes }: Props) => {
   const dailyData = useSelector((state) => state.dailyData.data);
+  const { country } = useSelector((state) => state.selectedCountry);
 
-  const data = {
+  const lineChart = {
     labels: dailyData.map((date) => date.reportDate),
     datasets: [
       {
@@ -30,9 +32,32 @@ const Chart = ({ classes }: Props) => {
     ],
   };
 
+  const barChart = {
+    labels: ["Infected", "Recovered", "Deaths"],
+    datasets: [
+      {
+        label: "Number of People Affected",
+        backgroundColor: [
+          "rgba(0, 0, 255, 0.5",
+          "rgba(0, 255, 0, 0.5",
+          "rgba(255, 0, 0, 0.5",
+        ],
+        data: [
+          country.confirmed?.value,
+          country.recovered?.value,
+          country.deaths?.value,
+        ],
+      },
+    ],
+  };
+
   return (
     <div className={classes.container}>
-      <Line height={125} data={data} />
+      {isObjectEmpty(country) ? (
+        <Bar height={100} data={barChart} />
+      ) : (
+        <Line height={110} data={lineChart} />
+      )}
     </div>
   );
 };
