@@ -25,7 +25,7 @@ const CustomCard = ({ classes, status, description, cases, date }: Props) => {
           <Typography variant="h5">
             <CountUp
               start={0}
-              end={cases === undefined ? 0 : cases}
+              end={cases ? cases : 0}
               duration={2.5}
               separator=","
             />

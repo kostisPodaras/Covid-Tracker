@@ -10,26 +10,41 @@ type Props = {
 };
 
 const Cards = ({ classes }: Props) => {
-  const { confirmed, recovered, deaths, lastUpdate } = useSelector(
-    (state) => state.data.data
-  );
+  const {
+    data: { confirmed, recovered, deaths, lastUpdate },
+  } = useSelector((state) => state.data);
+
+  const { country } = useSelector((state) => state.selectedCountry);
+  console.log(country);
+
   return (
     <Grid container justify="center" className={classes.container}>
       <CustomCard
         date={lastUpdate}
-        cases={confirmed?.value}
+        //check if i have selected a country, if yes i render her stats else the global
+        cases={
+          !!Object.keys(country).length
+            ? country.confirmed.value
+            : confirmed?.value
+        }
         status="Infected"
         description="active"
       />
       <CustomCard
         date={lastUpdate}
-        cases={recovered?.value}
+        cases={
+          !!Object.keys(country).length
+            ? country.recovered.value
+            : recovered?.value
+        }
         status="Recovered"
         description="recovered"
       />
       <CustomCard
         date={lastUpdate}
-        cases={deaths?.value}
+        cases={
+          !!Object.keys(country).length ? country.deaths.value : deaths?.value
+        }
         status="Deaths"
         description="death"
       />
