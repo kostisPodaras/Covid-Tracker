@@ -2,20 +2,30 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import FormControl from "@material-ui/core/FormControl";
+import selectCountry from "../../redux/selectedCountry/selectedCountryAction";
 
 import styles from "./styles";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const CountryPicker = () => {
+type Props = {
+  classes: Object,
+};
+
+const CountryPicker = ({ classes }: Props) => {
   const { countries } = useSelector((state) => state.countries);
-  console.log(countries);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <FormControl>
-        <NativeSelect>
+        <NativeSelect onChange={(e) => dispatch(selectCountry(e.target.value))}>
           <option value="global">Global</option>
           {countries.map((country) => (
-            <option key={country.name} value={country.name}>
+            <option
+              className={classes.option}
+              key={country.name}
+              value={country.name}
+            >
               {country.name}
             </option>
           ))}
