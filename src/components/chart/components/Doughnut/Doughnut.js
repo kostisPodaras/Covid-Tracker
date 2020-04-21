@@ -1,6 +1,6 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 import styles from "./styles";
 import { useSelector } from "react-redux";
@@ -9,10 +9,10 @@ type Props = {
   classes: Object,
 };
 
-const BarChart = ({ classes }: Props) => {
+const DoughnutChart = ({ classes }: Props) => {
   const { country } = useSelector((state) => state.selectedCountry);
 
-  const barData = {
+  const doughnutData = {
     labels: ["Infected", "Recovered", "Deaths"],
     datasets: [
       {
@@ -21,6 +21,11 @@ const BarChart = ({ classes }: Props) => {
           "rgba(0, 0, 255, 0.5",
           "rgba(0, 255, 0, 0.5",
           "rgba(255, 0, 0, 0.5",
+        ],
+        hoverBackgroundColor: [
+          "rgba(0, 0, 255, 0.7",
+          "rgba(0, 255, 0, 0.7",
+          "rgba(255, 0, 0, 0.7",
         ],
         data: [
           country.confirmed?.value,
@@ -31,7 +36,7 @@ const BarChart = ({ classes }: Props) => {
     ],
   };
 
-  return <Bar height={110} data={barData} />;
+  return <Doughnut height={110} data={doughnutData} />;
 };
 
-export default withStyles(styles)(BarChart);
+export default withStyles(styles)(DoughnutChart);

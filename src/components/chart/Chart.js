@@ -4,8 +4,7 @@ import { isObjectEmpty } from "../../utils";
 
 import styles from "./styles";
 import { useSelector } from "react-redux";
-import LineChart from "./LineChart";
-import BarChart from "./BarChart";
+import { LineChart, BarChart, DoughnutChart } from "./components";
 
 type Props = {
   classes: Object,
@@ -16,7 +15,7 @@ const Chart = ({ classes }: Props) => {
 
   return (
     <div className={classes.container}>
-      {isObjectEmpty(country) ? <BarChart /> : <LineChart />}
+      {isObjectEmpty(country) ? <DoughnutChart /> : <LineChart />}
     </div>
   );
 };

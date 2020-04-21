@@ -30,7 +30,7 @@ const LineChart = ({ classes }: Props) => {
     ],
   };
 
-  return <Line height={110} data={lineChart} />;
+  return <Line height={100} data={lineChart} />;
 };
 
 export default withStyles(styles)(LineChart);
