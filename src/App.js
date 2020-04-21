@@ -4,6 +4,7 @@ import { fetchData } from "./redux/data/dataAction";
 import { fetchDailyData } from "./redux/daily-data/dailyDataAction";
 import { fetchCountries } from "./redux/countries/countriesAction";
 import { useDispatch } from "react-redux";
+import { rona } from "./assets/images";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import styles from "./styles";
@@ -23,6 +24,7 @@ const App = ({ classes }: Props) => {
 
   return (
     <div className={classes.container}>
+      <img src={rona} alt="COVID-19" />
       <Cards />
       <CountryPicker />
       <Chart />
