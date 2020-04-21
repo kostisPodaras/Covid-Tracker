@@ -2,7 +2,7 @@
   "name": "covid19-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rona-data-tracker.netlify.app/",
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.9.11",
     "@material-ui/styles": "^4.9.10",
