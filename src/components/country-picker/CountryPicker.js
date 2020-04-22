@@ -18,6 +18,7 @@ const CountryPicker = ({ classes }: Props) => {
   const [selectedCountry, setSelectedCountry] = useState("");
 
   useEffect(() => {
+    dispatch(takeCountryName(selectedCountry));
     dispatch(fetchCountry(`${COUNTRIES_API}/${selectedCountry}`));
   }, [selectedCountry]);
 
@@ -25,8 +26,9 @@ const CountryPicker = ({ classes }: Props) => {
     <div>
       <FormControl>
         <NativeSelect
-          onClick={() => dispatch(takeCountryName(selectedCountry))}
-          onChange={(e) => setSelectedCountry(e.target.value)}
+          onChange={(e) => {
+            setSelectedCountry(e.target.value);
+          }}
         >
           <option value="">Global</option>
           {countries.map((country) => (
