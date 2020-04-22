@@ -4,7 +4,9 @@ import {
   FETCH_COUNTRY_FAILURE,
 } from "./selectedCountryType";
 
-const initialState = {};
+const initialState = {
+  country: {},
+};
 
 const selectedCountryReducer = (state = initialState, action) => {
   switch (action.type) {

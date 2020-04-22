@@ -15,7 +15,7 @@ const Cards = ({ classes }: Props) => {
     data: { confirmed, recovered, deaths, lastUpdate },
   } = useSelector((state) => state.data);
 
-  const country = useSelector((state) => state.selectedCountry);
+  const { country } = useSelector((state) => state.selectedCountry);
   console.log(country);
 
   return (
@@ -24,7 +24,7 @@ const Cards = ({ classes }: Props) => {
         date={lastUpdate}
         //check if i have selected a country, if yes i render her stats else the global
         cases={
-          isObjectEmpty(country) ? country.confirmed?.value : confirmed?.value
+          isObjectEmpty(country) ? country.confirmed.value : confirmed?.value
         }
         status="Infected"
         description="active"
@@ -32,14 +32,14 @@ const Cards = ({ classes }: Props) => {
       <CustomCard
         date={lastUpdate}
         cases={
-          isObjectEmpty(country) ? country.recovered?.value : recovered?.value
+          isObjectEmpty(country) ? country.recovered.value : recovered?.value
         }
         status="Recovered"
         description="recovered"
       />
       <CustomCard
         date={lastUpdate}
-        cases={isObjectEmpty(country) ? country.deaths?.value : deaths?.value}
+        cases={isObjectEmpty(country) ? country.deaths.value : deaths?.value}
         status="Deaths"
         description="death"
       />
