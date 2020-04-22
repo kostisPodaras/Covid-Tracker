@@ -24,6 +24,7 @@ const fetchData = () => {
     dispatch(fetchDataRequest());
     const request = await fetch(DATA_API);
     const fetchedData = await request.json();
+    console.log(fetchedData);
     dispatch(fetchDataSuccess(fetchedData));
   };
 };

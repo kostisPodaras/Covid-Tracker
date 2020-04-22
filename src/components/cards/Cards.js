@@ -16,7 +16,6 @@ const Cards = ({ classes }: Props) => {
   } = useSelector((state) => state.data);
 
   const { country } = useSelector((state) => state.selectedCountry);
-  console.log(country);
 
   return (
     <Grid container justify="center" className={classes.container}>
