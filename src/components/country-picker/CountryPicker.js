@@ -4,7 +4,7 @@ import NativeSelect from "@material-ui/core/NativeSelect";
 import FormControl from "@material-ui/core/FormControl";
 import fetchCountry from "../../redux/selectedCountry/selectedCountryAction";
 import { COUNTRIES_API } from "../../config";
-
+import { takeCountryName } from "../../redux/selectedCountry/selectedCountryAction";
 import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,16 +18,17 @@ const CountryPicker = ({ classes }: Props) => {
   const [selectedCountry, setSelectedCountry] = useState("");
 
   useEffect(() => {
-    selectedCountry
-      ? dispatch(fetchCountry(`${COUNTRIES_API}/${selectedCountry}`))
-      : console.log("not selected country yet");
+    dispatch(fetchCountry(`${COUNTRIES_API}/${selectedCountry}`));
   }, [selectedCountry]);
 
   return (
     <div>
       <FormControl>
-        <NativeSelect onChange={(e) => setSelectedCountry(e.target.value)}>
-          <option value="global">Global</option>
+        <NativeSelect
+          onClick={() => dispatch(takeCountryName(selectedCountry))}
+          onChange={(e) => setSelectedCountry(e.target.value)}
+        >
+          <option value="">Global</option>
           {countries.map((country) => (
             <option
               className={classes.option}

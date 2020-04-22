@@ -11,11 +11,11 @@ type Props = {
 };
 
 const Chart = ({ classes }: Props) => {
-  const { country } = useSelector((state) => state.selectedCountry);
+  const { countryName } = useSelector((state) => state.selectedCountry);
 
   return (
     <div className={classes.container}>
-      {isObjectEmpty(country) ? <DoughnutChart /> : <LineChart />}
+      {countryName ? <DoughnutChart /> : <LineChart />}
     </div>
   );
 };

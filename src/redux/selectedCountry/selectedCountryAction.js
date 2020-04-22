@@ -17,6 +17,11 @@ const fetchCountryFailure = () => ({
   type: FETCH_COUNTRY_FAILURE,
 });
 
+const takeCountryName = (name) => ({
+  type: "TAKE_COUNTRY_NAME",
+  payload: name,
+});
+
 const fetchCountry = (api) => {
   return async (dispatch) => {
     dispatch(fetchCountryRequest());
@@ -25,5 +30,5 @@ const fetchCountry = (api) => {
     dispatch(fetchCountrySucess(response));
   };
 };
-
+export { takeCountryName };
 export default fetchCountry;

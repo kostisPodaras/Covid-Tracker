@@ -5,7 +5,7 @@ import {
 } from "./dailyDataType";
 
 const initialState = {
-  loading: false,
+  // loading: false,
   data: [],
 };
 
@@ -14,12 +14,12 @@ const dailyDataReducer = (state = initialState, action) => {
     case FETCH_DAILY_DATA_REQUEST:
       return {
         ...state,
-        loading: true,
+        // loading: true,
       };
     case FETCH_DAILY_DATA_SUCESS:
       return {
         ...state,
-        loading: false,
+        // loading: false,
         data: action.payload,
       };
 
