@@ -30,7 +30,11 @@ const LineChart = ({ classes }: Props) => {
     ],
   };
 
-  return <Line height={100} data={lineChart} />;
+  const options = {
+    maintainAspectRatio: false, // Don't maintain w/h ratio
+  };
+
+  return <Line options={options} data={lineChart} />;
 };
 
 export default withStyles(styles)(LineChart);

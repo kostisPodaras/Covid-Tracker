@@ -6,7 +6,7 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk),
-    //i disable it for the production the line after
+    //disable the next line for production build
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );

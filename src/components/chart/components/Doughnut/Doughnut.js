@@ -36,7 +36,11 @@ const DoughnutChart = ({ classes }: Props) => {
     ],
   };
 
-  return <Doughnut height={110} data={doughnutData} />;
+  const options = {
+    maintainAspectRatio: false, // Don't maintain w/h ratio
+  };
+
+  return <Doughnut options={options} data={doughnutData} />;
 };
 
 export default withStyles(styles)(DoughnutChart);
