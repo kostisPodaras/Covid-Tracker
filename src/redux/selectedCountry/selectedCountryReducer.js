@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   country: {},
+  countryName: "",
 };
 
 const selectedCountryReducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ const selectedCountryReducer = (state = initialState, action) => {
       return {
         ...state,
         country: action.payload,
+      };
+    case "TAKE_COUNTRY_NAME":
+      return {
+        ...state,
+        countryName: action.payload,
       };
     default:
       return state;
