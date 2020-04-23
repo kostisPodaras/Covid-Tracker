@@ -3,8 +3,9 @@ import { CountryPicker, Chart, Cards, Header } from "./components";
 import { fetchData } from "./redux/data/dataAction";
 import { fetchDailyData } from "./redux/daily-data/dailyDataAction";
 import { fetchCountries } from "./redux/countries/countriesAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import withStyles from "@material-ui/core/styles/withStyles";
+import classNames from "classnames";
 
 import styles from "./styles";
 
@@ -14,6 +15,7 @@ type Props = {
 
 const App = ({ classes }: Props) => {
   const dispatch = useDispatch();
+  const { toggleNightMode } = useSelector((state) => state.toggleNightMode);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -22,9 +24,13 @@ const App = ({ classes }: Props) => {
   }, []);
 
   return (
-    <div className={classes.container}>
+    <div
+      className={classNames(
+        classes.container,
+        toggleNightMode ? classes.nightTheme : classes.dayTheme
+      )}
+    >
       <Header />
-
       <Cards />
       <CountryPicker />
       <Chart />

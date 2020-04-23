@@ -8,9 +8,6 @@ import { takeCountryName } from "../../redux/selectedCountry/selectedCountryActi
 import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-
 type Props = {
   classes: Object,
 };
