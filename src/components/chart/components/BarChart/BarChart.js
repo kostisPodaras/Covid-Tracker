@@ -1,7 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Bar } from "react-chartjs-2";
-
+import palette from "../../../../theme/palette";
 import styles from "./styles";
 import { useSelector } from "react-redux";
 
@@ -17,11 +17,7 @@ const BarChart = ({ classes }: Props) => {
     datasets: [
       {
         label: "Number of People",
-        backgroundColor: [
-          "rgba(0, 0, 255, 0.5",
-          "rgba(0, 255, 0, 0.5",
-          "rgba(255, 0, 0, 0.5",
-        ],
+        backgroundColor: [palette.infected, palette.recovered, palette.deaths],
         data: [
           country.confirmed?.value,
           country.recovered?.value,

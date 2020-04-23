@@ -43,15 +43,21 @@ const CountryPicker = ({ classes }: Props) => {
         </NativeSelect>
       </FormControl>
 
-      {/* other way with better styling but lower performance */}
-      {/* <Select>
-          <MenuItem value="global">Global</MenuItem>
-          {countries.map((country) => (
-            <MenuItem key={country.name} value={country.name}>
-              {country.name}
-            </MenuItem>
-          ))}
-        </Select> */}
+      {/* <Autocomplete
+        options={countries}
+        getOptionLabel={(option) => option.name}
+        style={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField
+            onChange={(e) => {
+              setSelectedCountry(e.target.value);
+            }}
+            {...params}
+            label="Combo box"
+            variant="outlined"
+          />
+        )}
+      /> */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Line } from "react-chartjs-2";
-
+import palette from "../../../../theme/palette";
 import styles from "./styles";
 import { useSelector } from "react-redux";
 
@@ -18,13 +18,13 @@ const LineChart = ({ classes }: Props) => {
       {
         label: "Infected",
         data: dailyData.map(({ totalConfirmed }) => totalConfirmed),
-        borderColor: "#3333ff",
+        borderColor: palette.infected,
         fill: true,
       },
       {
         label: "Deaths",
         data: dailyData.map(({ deaths }) => deaths.total),
-        borderColor: "rgba(255,9,9,0.5)",
+        borderColor: palette.deaths,
         fill: true,
       },
     ],
