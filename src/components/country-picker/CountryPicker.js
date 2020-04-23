@@ -8,6 +8,9 @@ import { takeCountryName } from "../../redux/selectedCountry/selectedCountryActi
 import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+
 type Props = {
   classes: Object,
 };
@@ -43,15 +46,21 @@ const CountryPicker = ({ classes }: Props) => {
         </NativeSelect>
       </FormControl>
 
-      {/* other way with better styling but lower performance */}
-      {/* <Select>
-          <MenuItem value="global">Global</MenuItem>
-          {countries.map((country) => (
-            <MenuItem key={country.name} value={country.name}>
-              {country.name}
-            </MenuItem>
-          ))}
-        </Select> */}
+      {/* <Autocomplete
+        options={countries}
+        getOptionLabel={(option) => option.name}
+        style={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField
+            onChange={(e) => {
+              setSelectedCountry(e.target.value);
+            }}
+            {...params}
+            label="Combo box"
+            variant="outlined"
+          />
+        )}
+      /> */}
     </div>
   );
 };

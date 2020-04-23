@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import { CountryPicker, Chart, Cards } from "./components";
+import { CountryPicker, Chart, Cards, Header } from "./components";
 import { fetchData } from "./redux/data/dataAction";
 import { fetchDailyData } from "./redux/daily-data/dailyDataAction";
 import { fetchCountries } from "./redux/countries/countriesAction";
 import { useDispatch } from "react-redux";
-import { rona } from "./assets/images";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import styles from "./styles";
@@ -24,7 +23,8 @@ const App = ({ classes }: Props) => {
 
   return (
     <div className={classes.container}>
-      <img src={rona} alt="COVID-19" />
+      <Header />
+
       <Cards />
       <CountryPicker />
       <Chart />
