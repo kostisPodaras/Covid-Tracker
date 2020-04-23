@@ -1,4 +1,4 @@
-const styles = () => ({
+const styles = ({ palette }) => ({
   container: {
     display: "flex",
     justifyContent: "center",
@@ -7,11 +7,11 @@ const styles = () => ({
   },
 
   nightTheme: {
-    backgroundColor: "#393f4d",
+    backgroundColor: palette.black,
   },
 
   dayTheme: {
-    backgroundColor: "white",
+    backgroundColor: palette.white,
   },
 });
 

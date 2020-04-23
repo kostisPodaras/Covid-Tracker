@@ -1,7 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Doughnut } from "react-chartjs-2";
-
+import palette from "../../../../theme/palette";
 import styles from "./styles";
 import { useSelector } from "react-redux";
 
@@ -16,16 +16,11 @@ const DoughnutChart = ({ classes }: Props) => {
     labels: ["Infected", "Recovered", "Deaths"],
     datasets: [
       {
-        label: "Number of People",
-        backgroundColor: [
-          "rgba(0, 0, 255, 0.5",
-          "rgba(0, 255, 0, 0.5",
-          "rgba(255, 0, 0, 0.5",
-        ],
+        backgroundColor: [palette.infected, palette.recovered, palette.deaths],
         hoverBackgroundColor: [
-          "rgba(0, 0, 255, 0.7",
-          "rgba(0, 255, 0, 0.7",
-          "rgba(255, 0, 0, 0.7",
+          palette.casesHover.infected,
+          palette.casesHover.recovered,
+          palette.casesHover.deaths,
         ],
         data: [
           country.confirmed?.value,
