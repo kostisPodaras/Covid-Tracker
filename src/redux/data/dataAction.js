@@ -23,8 +23,8 @@ const fetchData = () => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     const request = await fetch(DATA_API);
-    const fetchedData = await request.json();
-    dispatch(fetchDataSuccess(fetchedData));
+    const { confirmed, recovered, deaths } = await request.json();
+    dispatch(fetchDataSuccess({ confirmed, recovered, deaths }));
   };
 };
 

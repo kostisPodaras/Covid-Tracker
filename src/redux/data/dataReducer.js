@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   loading: false,
-  data: [],
+  data: {},
 };
 
 const dataReducer = (state = initialState, action) => {
