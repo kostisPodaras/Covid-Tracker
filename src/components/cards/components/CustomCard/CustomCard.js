@@ -8,6 +8,7 @@ import CountUp from "react-countup";
 
 import { dateFormat } from "../../../../utils";
 import styles from "./styles";
+import { useSelector } from "react-redux";
 
 type Props = {
   classes: Object,
@@ -17,9 +18,16 @@ type Props = {
 };
 
 const CustomCard = ({ classes, status, description, cases, date }: Props) => {
+  const isDarkMode = useSelector(
+    (state) => state.toggleNightMode.toggleNightMode
+  );
   return (
     <Grid item xs={12} md={3} className={classes.container}>
-      <Card classes={{ root: classes.rootCard }}>
+      <Card
+        variant={isDarkMode ? "outlined" : null}
+        className={classes.card}
+        classes={{ root: classes.rootCard }}
+      >
         <CardContent>
           <Typography>{status}</Typography>
           <Typography variant="h5">

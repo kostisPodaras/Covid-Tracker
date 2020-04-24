@@ -5,14 +5,6 @@ const styles = ({ palette }) => ({
     alignItems: "center",
     flexDirection: "column",
   },
-
-  nightTheme: {
-    backgroundColor: palette.black,
-  },
-
-  dayTheme: {
-    backgroundColor: palette.white,
-  },
 });
 
 export default styles;

@@ -1,3 +1,3 @@
-import muiTheme from "./muiTheme";
+import theme from "./muiTheme";
 
-export default muiTheme;
+export default theme;

@@ -42,22 +42,6 @@ const CountryPicker = ({ classes }: Props) => {
           ))}
         </NativeSelect>
       </FormControl>
-
-      {/* <Autocomplete
-        options={countries}
-        getOptionLabel={(option) => option.name}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField
-            onChange={(e) => {
-              setSelectedCountry(e.target.value);
-            }}
-            {...params}
-            label="Combo box"
-            variant="outlined"
-          />
-        )}
-      /> */}
     </div>
   );
 };
