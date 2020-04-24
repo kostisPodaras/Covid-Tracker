@@ -1,9 +1,11 @@
 import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { useSelector } from "react-redux";
 import { Bar } from "react-chartjs-2";
+
+import withStyles from "@material-ui/core/styles/withStyles";
+
 import palette from "../../../../theme/palette";
 import styles from "./styles";
-import { useSelector } from "react-redux";
 
 type Props = {
   classes: Object,

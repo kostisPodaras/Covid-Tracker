@@ -1,11 +1,14 @@
 import React from "react";
-import { CountryPicker, Chart, Cards, Header } from "./components";
+import { useSelector } from "react-redux";
+
 import Paper from "@material-ui/core/Paper";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import { useSelector } from "react-redux";
-import styles from "./styles";
 import withStyles from "@material-ui/core/styles/withStyles";
+
+import { CountryPicker, Chart, Cards, Header } from "./components";
 import theme from "./theme";
+
+import styles from "./styles";
 type Props = {
   classes: Object,
 };

@@ -1,8 +1,10 @@
 import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Grid from "@material-ui/core/Grid";
-import { CustomCard } from "./components";
 import { useSelector } from "react-redux";
+
+import Grid from "@material-ui/core/Grid";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import { CustomCard } from "./components";
 import styles from "./styles";
 
 type Props = {
