@@ -1,10 +1,9 @@
 import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { useSelector } from "react-redux";
 import CountUp from "react-countup";
+
+import { Card, CardContent, Grid, Typography } from "@material-ui/core";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 import { dateFormat } from "../../../../utils";
 import styles from "./styles";
@@ -17,9 +16,16 @@ type Props = {
 };
 
 const CustomCard = ({ classes, status, description, cases, date }: Props) => {
+  const isDarkMode = useSelector(
+    (state) => state.toggleNightMode.toggleNightMode
+  );
   return (
     <Grid item xs={12} md={3} className={classes.container}>
-      <Card classes={{ root: classes.rootCard }}>
+      <Card
+        variant={isDarkMode ? "outlined" : null}
+        className={classes.card}
+        classes={{ root: classes.rootCard }}
+      >
         <CardContent>
           <Typography>{status}</Typography>
           <Typography variant="h5">

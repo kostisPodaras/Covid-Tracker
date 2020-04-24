@@ -1,10 +1,10 @@
 import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { isObjectEmpty } from "../../utils";
-
-import styles from "./styles";
 import { useSelector } from "react-redux";
-import { LineChart, BarChart, DoughnutChart } from "./components";
+
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import { LineChart, DoughnutChart } from "./components";
+import styles from "./styles";
 
 type Props = {
   classes: Object,

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import NativeSelect from "@material-ui/core/NativeSelect";
-import FormControl from "@material-ui/core/FormControl";
-import fetchCountry from "../../redux/selectedCountry/selectedCountryAction";
-import { COUNTRIES_API } from "../../config";
-import { takeCountryName } from "../../redux/selectedCountry/selectedCountryAction";
-import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
+
+import { NativeSelect, FormControl } from "@material-ui/core";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import fetchCountry, {
+  takeCountryName,
+} from "../../redux/selectedCountry/selectedCountryAction";
+import { COUNTRIES_API } from "../../config";
+import styles from "./styles";
 
 type Props = {
   classes: Object,
@@ -42,22 +44,6 @@ const CountryPicker = ({ classes }: Props) => {
           ))}
         </NativeSelect>
       </FormControl>
-
-      {/* <Autocomplete
-        options={countries}
-        getOptionLabel={(option) => option.name}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField
-            onChange={(e) => {
-              setSelectedCountry(e.target.value);
-            }}
-            {...params}
-            label="Combo box"
-            variant="outlined"
-          />
-        )}
-      /> */}
     </div>
   );
 };

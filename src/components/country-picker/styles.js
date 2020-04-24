@@ -1,7 +1,3 @@
-const styles = () => ({
-  option: {
-    backgroundColor: "#F4F4F4 !important",
-  },
-});
+const styles = () => ({});
 
 export default styles;
