@@ -1,4 +1,4 @@
-const styles = ({ palette }) => ({
+const styles = ({ palette, breakpoints }) => ({
   avatar: {
     display: "inline-block",
     height: 20,
@@ -6,8 +6,12 @@ const styles = ({ palette }) => ({
     marginLeft: 4,
   },
   container: {
-    minWidth: 105,
+    maxWidth: 85,
     display: "flex",
+
+    [breakpoints.up("md")]: {
+      maxWidth: 105,
+    },
   },
   row: {
     "&:nth-of-type(odd)": {
@@ -16,6 +20,12 @@ const styles = ({ palette }) => ({
   },
   cell: {
     borderRight: `1px solid ${palette.grey[500]}`,
+  },
+  dailyCases: {
+    color: palette.table.newCases,
+  },
+  dailyDeaths: {
+    color: palette.table.newDeaths,
   },
 });
 export default styles;

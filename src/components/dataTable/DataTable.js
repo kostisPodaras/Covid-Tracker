@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import { defaultSorting, rows } from "./config";
+import { defaultSorting, headerRow } from "./config";
 import sortData from "../../redux/sorting-data/sortingDataAction";
 import { CustomRow } from "./components";
 import styles from "./styles";
@@ -44,13 +44,14 @@ const DataTable = ({ classes }: Props) => {
         <Table stickyHeader aria-label="simple table">
           <TableHead>
             <TableRow>
-              {rows.map((el) => (
+              {headerRow.map((el) => (
                 <TableCell align="left" classes={{ root: classes.cell }}>
                   {el}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
+
           <TableBody>
             {countries.map((country) => (
               <CustomRow key={country.name} country={country} />

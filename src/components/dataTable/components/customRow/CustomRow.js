@@ -40,34 +40,42 @@ const CustomRow = ({ classes, country }: Props) => {
         </Grid>
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.cases}
+        {country.cases}
+      </TableCell>
+      <TableCell
+        className={classes.dailyCases}
+        classes={{ root: classes.cell }}
+        align="left"
+      >
+        {!!country.todayCases && `+${country?.todayCases}`}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {!!country?.todayCases && `+${country?.todayCases}`}
+        {country.deaths}
+      </TableCell>
+      <TableCell
+        className={classes.dailyDeaths}
+        classes={{ root: classes.cell }}
+        align="left"
+      >
+        {!!country.todayDeaths && `+${country.todayDeaths}`}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.deaths}
+        {country.recovered}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {!!country?.todayDeaths && `+${country.todayDeaths}`}
+        {country.active}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.recovered}
+        {country.critical}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.active}
+        {country.tests}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.critical}
+        {country.casesPerOneMillion}
       </TableCell>
       <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.tests}
-      </TableCell>
-      <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.casesPerOneMillion}
-      </TableCell>
-      <TableCell classes={{ root: classes.cell }} align="left">
-        {country?.deathsPerOneMillion}
+        {country.deathsPerOneMillion}
       </TableCell>
     </TableRow>
   );

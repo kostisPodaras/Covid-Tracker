@@ -14,7 +14,7 @@ type Props = {
 const Cards = ({ classes }: Props) => {
   const {
     data: { confirmed, recovered, deaths, lastUpdate },
-  } = useSelector((state) => state.data);
+  } = useSelector((state) => state.globalData);
   const { countryName } = useSelector((state) => state.selectedCountry);
   const { country } = useSelector((state) => state.selectedCountry);
 

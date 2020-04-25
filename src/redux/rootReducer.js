@@ -8,7 +8,7 @@ import uiReducer from "./UI/uiReducer";
 import sortingReducer from "./sorting-data/sortingDataReducer";
 
 const rootReducer = combineReducers({
-  data: dataReducer,
+  globalData: dataReducer,
   dailyData: dailyDataReducer,
   countries: countriesReducer,
   selectedCountry: selectedCountryReducer,

@@ -1,5 +1,5 @@
 const defaultSorting = "cases";
-const rows = [
+const headerRow = [
   "Country",
   "Total Cases",
   "New Cases",
@@ -13,4 +13,4 @@ const rows = [
   "Cases/1M",
 ];
 
-export { defaultSorting, rows };
+export { defaultSorting, headerRow };
