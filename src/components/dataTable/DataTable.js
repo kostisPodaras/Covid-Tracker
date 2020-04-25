@@ -9,12 +9,14 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  Avatar,
+  Grid,
 } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import { defaultSorting, rows } from "./config";
 import sortData from "../../redux/sorting-data/sortingDataAction";
+import { CustomRow } from "./components";
 import styles from "./styles";
 
 type Props = {
@@ -24,9 +26,7 @@ type Props = {
 const DataTable = ({ classes }: Props) => {
   const dispatch = useDispatch();
   const { countries } = useSelector((state) => state.dailyUpdates);
-  const isDarkMode = useSelector(
-    (state) => state.toggleNightMode.toggleNightMode
-  );
+
   const [sortOption, setSortOption] = useState(defaultSorting);
 
   useEffect(() => {
@@ -53,30 +53,7 @@ const DataTable = ({ classes }: Props) => {
           </TableHead>
           <TableBody>
             {countries.map((country) => (
-              <TableRow
-                classes={!isDarkMode ? { root: classes.row } : null}
-                key={country.country}
-              >
-                <TableCell align="left" component="th" scope="row">
-                  {country.country}
-                </TableCell>
-                <TableCell align="left">{country.cases}</TableCell>
-                <TableCell align="left">
-                  {!!country.todayCases && `+${country.todayCases}`}
-                </TableCell>
-                <TableCell align="left">{country.deaths}</TableCell>
-                <TableCell align="left">
-                  {!!country.todayDeaths && `+${country.todayDeaths}`}
-                </TableCell>
-                <TableCell align="left">{country.recovered}</TableCell>
-                <TableCell align="left">{country.active}</TableCell>
-                <TableCell align="left">{country.critical}</TableCell>
-                <TableCell align="left">{country.tests}</TableCell>
-                <TableCell align="left">{country.casesPerOneMillion}</TableCell>
-                <TableCell align="left">
-                  {country.deathsPerOneMillion}
-                </TableCell>
-              </TableRow>
+              <CustomRow key={country.name} country={country} />
             ))}
           </TableBody>
         </Table>
