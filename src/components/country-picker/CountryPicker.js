@@ -21,7 +21,9 @@ const CountryPicker = ({ classes }: Props) => {
 
   useEffect(() => {
     dispatch(takeCountryName(selectedCountry));
-    dispatch(fetchCountry(`${COUNTRIES_API}/${selectedCountry}`));
+    if (selectedCountry) {
+      dispatch(fetchCountry(`${COUNTRIES_API}/${selectedCountry}`));
+    }
   }, [selectedCountry]);
 
   return (

@@ -24,7 +24,7 @@ const Header = ({ classes }: Props) => {
         className={classes.switcher}
         value="bottom"
         control={<Switch color="primary" />}
-        label={<Typography variant="caption">Switch Mode</Typography>}
+        label={<Typography variant="caption">Dark Mode</Typography>}
         labelPlacement="bottom"
       />
     </Grid>

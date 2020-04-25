@@ -15,7 +15,6 @@ const CustomRow = ({ classes, country }: Props) => {
   const isDarkMode = useSelector(
     (state) => state.toggleNightMode.toggleNightMode
   );
-  console.log(country);
   return (
     <TableRow
       classes={!isDarkMode ? { root: classes.row } : null}
