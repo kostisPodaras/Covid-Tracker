@@ -3,7 +3,7 @@ const styles = () => ({
     position: "relative",
   },
   switcher: {
-    position: "absolute",
+    position: "fixed",
     right: "70px",
     top: "10px",
 
