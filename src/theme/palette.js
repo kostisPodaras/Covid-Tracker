@@ -3,6 +3,7 @@ const palette = {
   black: "#393f4d",
   grey: {
     400: "#F4F4F4",
+    500: "#C0C0C0",
   },
   text: {
     black: "#312F2F",

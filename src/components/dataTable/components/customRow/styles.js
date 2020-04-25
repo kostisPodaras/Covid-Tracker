@@ -14,5 +14,8 @@ const styles = ({ palette }) => ({
       backgroundColor: palette.grey[400],
     },
   },
+  cell: {
+    borderRight: `1px solid ${palette.grey[500]}`,
+  },
 });
 export default styles;

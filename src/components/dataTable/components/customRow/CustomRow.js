@@ -15,12 +15,18 @@ const CustomRow = ({ classes, country }: Props) => {
   const isDarkMode = useSelector(
     (state) => state.toggleNightMode.toggleNightMode
   );
+  console.log(country);
   return (
     <TableRow
       classes={!isDarkMode ? { root: classes.row } : null}
       key={country.country}
     >
-      <TableCell align="left" component="th" scope="row">
+      <TableCell
+        classes={{ root: classes.cell }}
+        align="left"
+        component="th"
+        scope="row"
+      >
         <Grid container>
           <div className={classes.container}>
             {country.country}
@@ -33,20 +39,36 @@ const CustomRow = ({ classes, country }: Props) => {
           </div>
         </Grid>
       </TableCell>
-      <TableCell align="left">{country?.cases}</TableCell>
-      <TableCell align="left">
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.cases}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
         {!!country?.todayCases && `+${country?.todayCases}`}
       </TableCell>
-      <TableCell align="left">{country?.deaths}</TableCell>
-      <TableCell align="left">
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.deaths}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
         {!!country?.todayDeaths && `+${country.todayDeaths}`}
       </TableCell>
-      <TableCell align="left">{country?.recovered}</TableCell>
-      <TableCell align="left">{country?.active}</TableCell>
-      <TableCell align="left">{country?.critical}</TableCell>
-      <TableCell align="left">{country?.tests}</TableCell>
-      <TableCell align="left">{country?.casesPerOneMillion}</TableCell>
-      <TableCell align="left">{country?.deathsPerOneMillion}</TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.recovered}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.active}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.critical}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.tests}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.casesPerOneMillion}
+      </TableCell>
+      <TableCell classes={{ root: classes.cell }} align="left">
+        {country?.deathsPerOneMillion}
+      </TableCell>
     </TableRow>
   );
 };
