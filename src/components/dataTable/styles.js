@@ -1,6 +1,6 @@
 const styles = ({ palette, breakpoints }) => ({
   container: {
-    height: 750,
+    height: 550,
     maxWidth: "100%",
 
     [breakpoints.up("lg")]: {
@@ -10,11 +10,6 @@ const styles = ({ palette, breakpoints }) => ({
   cell: {
     backgroundColor: palette.black,
     color: palette.white,
-  },
-  row: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: palette.grey[400],
-    },
   },
 });
 
