@@ -1,6 +1,6 @@
 const styles = ({ palette, breakpoints }) => ({
   container: {
-    height: 500,
+    height: 750,
     maxWidth: "100%",
 
     [breakpoints.up("lg")]: {

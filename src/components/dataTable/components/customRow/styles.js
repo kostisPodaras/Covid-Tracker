@@ -1,4 +1,4 @@
-const styles = () => ({
+const styles = ({ palette }) => ({
   avatar: {
     display: "inline-block",
     height: 20,
@@ -8,6 +8,11 @@ const styles = () => ({
   container: {
     minWidth: 105,
     display: "flex",
+  },
+  row: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: palette.grey[400],
+    },
   },
 });
 export default styles;
