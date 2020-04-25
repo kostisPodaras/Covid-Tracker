@@ -1,7 +1,11 @@
-const styles = ({ palette }) => ({
+const styles = ({ palette, breakpoints }) => ({
   container: {
     height: 500,
-    maxWidth: "85%",
+    maxWidth: "100%",
+
+    [breakpoints.up("lg")]: {
+      maxWidth: "85%",
+    },
   },
   cell: {
     backgroundColor: palette.black,

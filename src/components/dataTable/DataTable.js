@@ -45,7 +45,7 @@ const DataTable = ({ classes }: Props) => {
           <TableHead>
             <TableRow>
               {rows.map((el) => (
-                <TableCell align="right" classes={{ root: classes.cell }}>
+                <TableCell align="left" classes={{ root: classes.cell }}>
                   {el}
                 </TableCell>
               ))}
@@ -57,25 +57,23 @@ const DataTable = ({ classes }: Props) => {
                 classes={!isDarkMode ? { root: classes.row } : null}
                 key={country.country}
               >
-                <TableCell component="th" scope="row">
+                <TableCell align="left" component="th" scope="row">
                   {country.country}
                 </TableCell>
-                <TableCell align="right">{country.cases}</TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{country.cases}</TableCell>
+                <TableCell align="left">
                   {!!country.todayCases && `+${country.todayCases}`}
                 </TableCell>
-                <TableCell align="right">{country.deaths}</TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{country.deaths}</TableCell>
+                <TableCell align="left">
                   {!!country.todayDeaths && `+${country.todayDeaths}`}
                 </TableCell>
-                <TableCell align="right">{country.recovered}</TableCell>
-                <TableCell align="right">{country.active}</TableCell>
-                <TableCell align="right">{country.critical}</TableCell>
-                <TableCell align="right">{country.tests}</TableCell>
-                <TableCell align="right">
-                  {country.casesPerOneMillion}
-                </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{country.recovered}</TableCell>
+                <TableCell align="left">{country.active}</TableCell>
+                <TableCell align="left">{country.critical}</TableCell>
+                <TableCell align="left">{country.tests}</TableCell>
+                <TableCell align="left">{country.casesPerOneMillion}</TableCell>
+                <TableCell align="left">
                   {country.deathsPerOneMillion}
                 </TableCell>
               </TableRow>
