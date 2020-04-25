@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import defaultSorting from "./config";
+import { defaultSorting, rows } from "./config";
 import sortData from "../../redux/sorting-data/sortingDataAction";
 import styles from "./styles";
 
@@ -24,6 +24,9 @@ type Props = {
 const DataTable = ({ classes }: Props) => {
   const dispatch = useDispatch();
   const { countries } = useSelector((state) => state.dailyUpdates);
+  const isDarkMode = useSelector(
+    (state) => state.toggleNightMode.toggleNightMode
+  );
   const [sortOption, setSortOption] = useState(defaultSorting);
 
   useEffect(() => {
@@ -38,25 +41,22 @@ const DataTable = ({ classes }: Props) => {
         autoHideTimeout={1000}
         autoHideDuration={200}
       >
-        <Table stickyHeader className={classes.table} aria-label="simple table">
+        <Table stickyHeader aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Country</TableCell>
-              <TableCell align="right">Total Cases</TableCell>
-              <TableCell align="right">New Cases</TableCell>
-              <TableCell align="right">Deaths</TableCell>
-              <TableCell align="right">New Deaths</TableCell>
-              <TableCell align="right">Recovered</TableCell>
-              <TableCell align="right">Active Cases</TableCell>
-              <TableCell align="right">Critical</TableCell>
-              <TableCell align="right">Tests</TableCell>
-              <TableCell align="right">Cases/1M</TableCell>
-              <TableCell align="right">Deaths/1M</TableCell>
+              {rows.map((el) => (
+                <TableCell align="right" classes={{ root: classes.cell }}>
+                  {el}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {countries.map((country) => (
-              <TableRow key={country.country}>
+              <TableRow
+                classes={!isDarkMode ? { root: classes.row } : null}
+                key={country.country}
+              >
                 <TableCell component="th" scope="row">
                   {country.country}
                 </TableCell>
