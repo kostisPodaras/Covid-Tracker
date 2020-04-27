@@ -14,11 +14,22 @@ const headerRow = [
 ];
 
 const sortingOptions = [
-  "cases",
-  "deaths",
-  "todayCases",
-  "todayDeaths",
-  "tests",
+  {
+    value: "cases",
+    uiName: "Cases",
+  },
+  {
+    value: "deaths",
+    uiName: "Deaths",
+  },
+  {
+    value: "todayCases",
+    uiName: "New Cases",
+  },
+  {
+    value: "todayDeaths",
+    uiName: "New Deaths",
+  },
 ];
 
 export default sortingOptions;

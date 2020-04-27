@@ -29,12 +29,12 @@ const CustomRow = ({ classes, country }: Props) => {
         <Grid container>
           <div className={classes.container}>
             {country.country}
-            <Avatar
+            {/* <Avatar
               classes={{ root: classes.avatar }}
               alt="flag"
               src={country.countryInfo.flag}
               className={classes.avatar}
-            />
+            /> */}
           </div>
         </Grid>
       </TableCell>

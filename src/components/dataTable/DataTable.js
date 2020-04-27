@@ -41,8 +41,8 @@ const DataTable = ({ classes }: Props) => {
           <InputLabel>Sort By</InputLabel>
           <NativeSelect onChange={(e) => dispatch(sortData(e.target.value))}>
             {sortingOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
+              <option key={option.uiName} value={option.value}>
+                {option.uiName}
               </option>
             ))}
           </NativeSelect>
