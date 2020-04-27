@@ -30,6 +30,10 @@ const sortingOptions = [
     value: "todayDeaths",
     uiName: "New Deaths",
   },
+  {
+    value: "tests",
+    uiName: "Tests",
+  },
 ];
 
 export default sortingOptions;
