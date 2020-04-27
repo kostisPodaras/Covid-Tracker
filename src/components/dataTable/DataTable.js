@@ -9,12 +9,13 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Avatar,
-  Grid,
+  InputLabel,
+  FormControl,
+  NativeSelect,
 } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import { defaultSorting, headerRow } from "./config";
+import { defaultSorting, headerRow, sortingOptions } from "./config";
 import sortData from "../../redux/sorting-data/sortingDataAction";
 import { CustomRow } from "./components";
 import styles from "./styles";
@@ -34,32 +35,46 @@ const DataTable = ({ classes }: Props) => {
   }, [sortOption]);
 
   return (
-    <TableContainer className={classes.container}>
-      <Scrollbars
-        autoHeightMin={100}
-        autoHide
-        autoHideTimeout={1000}
-        autoHideDuration={200}
-      >
-        <Table stickyHeader aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              {headerRow.map((el) => (
-                <TableCell align="left" classes={{ root: classes.cell }}>
-                  {el}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {countries.map((country) => (
-              <CustomRow key={country.name} country={country} />
+    <>
+      <div className={classes.sortingContainer}>
+        <FormControl>
+          <InputLabel>Sort By</InputLabel>
+          <NativeSelect onChange={(e) => setSortOption(e.target.value)}>
+            {sortingOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
             ))}
-          </TableBody>
-        </Table>
-      </Scrollbars>
-    </TableContainer>
+          </NativeSelect>
+        </FormControl>
+      </div>
+      <TableContainer className={classes.container}>
+        <Scrollbars
+          autoHeightMin={100}
+          autoHide
+          autoHideTimeout={1000}
+          autoHideDuration={200}
+        >
+          <Table stickyHeader aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                {headerRow.map((el) => (
+                  <TableCell align="center" classes={{ root: classes.cell }}>
+                    {el}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {countries.map((country) => (
+                <CustomRow key={country.name} country={country} />
+              ))}
+            </TableBody>
+          </Table>
+        </Scrollbars>
+      </TableContainer>
+    </>
   );
 };
 

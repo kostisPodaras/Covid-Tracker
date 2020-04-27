@@ -20,6 +20,11 @@ const styles = ({ palette, breakpoints }) => ({
   },
   cell: {
     borderRight: `1px solid ${palette.grey[500]}`,
+    overflow: "hidden",
+
+    [breakpoints.down("sm")]: {
+      paddingLeft: 0,
+    },
   },
   dailyCases: {
     color: palette.table.newCases,

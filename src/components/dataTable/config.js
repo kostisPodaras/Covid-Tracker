@@ -13,4 +13,14 @@ const headerRow = [
   "Cases/1M",
 ];
 
-export { defaultSorting, headerRow };
+const sortingOptions = [
+  "cases",
+  "deaths",
+  "todayCases",
+  "todayDeaths",
+  "tests",
+];
+
+export default sortingOptions;
+
+export { defaultSorting, headerRow, sortingOptions };

@@ -11,6 +11,14 @@ const styles = ({ palette, breakpoints }) => ({
     backgroundColor: palette.black,
     color: palette.white,
   },
+  sortingContainer: {
+    width: "100%",
+
+    [breakpoints.up("lg")]: {
+      maxWidth: "85%",
+    },
+    marginBottom: 10,
+  },
 });
 
 export default styles;
