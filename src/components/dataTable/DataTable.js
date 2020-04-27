@@ -12,7 +12,9 @@ import {
   InputLabel,
   FormControl,
   NativeSelect,
+  CircularProgress,
 } from "@material-ui/core";
+
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import { defaultSorting, headerRow, sortingOptions } from "./config";
@@ -34,7 +36,6 @@ const DataTable = ({ classes }: Props) => {
 
   return (
     <>
-      {loading && <p>loading</p>}
       <div className={classes.sortingContainer}>
         <FormControl>
           <InputLabel>Sort By</InputLabel>
@@ -65,11 +66,18 @@ const DataTable = ({ classes }: Props) => {
               </TableRow>
             </TableHead>
 
-            <TableBody>
-              {countries.map((country) => (
-                <CustomRow key={country.name} country={country} />
-              ))}
-            </TableBody>
+            {loading ? (
+              <CircularProgress
+                disableShrink={true}
+                classes={{ root: classes.loader }}
+              />
+            ) : (
+              <TableBody>
+                {countries.map((country) => (
+                  <CustomRow key={country.name} country={country} />
+                ))}
+              </TableBody>
+            )}
           </Table>
         </Scrollbars>
       </TableContainer>
