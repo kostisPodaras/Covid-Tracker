@@ -12,7 +12,7 @@ const sortDataSuccess = (countries) => ({
 
 const sortData = (sort) => {
   return async (dispatch) => {
-    dispatch(sortDataRequest);
+    dispatch(sortDataRequest());
     const request = await fetch(`${SORTING_API}${sort}`);
     const response = await request.json();
     dispatch(sortDataSuccess(response));

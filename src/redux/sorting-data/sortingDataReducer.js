@@ -1,6 +1,7 @@
 import { SORT_DATA_REQUEST, SORT_DATA_SUCCESS } from "./sortingDataType";
 
 const initialState = {
+  loading: true,
   countries: [],
 };
 
@@ -9,11 +10,12 @@ const sortingReducer = (state = initialState, action) => {
     case SORT_DATA_REQUEST:
       return {
         ...state,
-        // loading: true,
+        loading: true,
       };
     case SORT_DATA_SUCCESS:
       return {
         ...state,
+        loading: false,
         countries: action.payload,
       };
     default:

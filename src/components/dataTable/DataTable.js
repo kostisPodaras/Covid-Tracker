@@ -26,20 +26,19 @@ type Props = {
 
 const DataTable = ({ classes }: Props) => {
   const dispatch = useDispatch();
-  const { countries } = useSelector((state) => state.dailyUpdates);
-
-  const [sortOption, setSortOption] = useState(defaultSorting);
+  const { countries, loading } = useSelector((state) => state.dailyUpdates);
 
   useEffect(() => {
-    dispatch(sortData(sortOption));
-  }, [sortOption]);
+    dispatch(sortData(defaultSorting));
+  }, []);
 
   return (
     <>
+      {loading && <p>loading</p>}
       <div className={classes.sortingContainer}>
         <FormControl>
           <InputLabel>Sort By</InputLabel>
-          <NativeSelect onChange={(e) => setSortOption(e.target.value)}>
+          <NativeSelect onChange={(e) => dispatch(sortData(e.target.value))}>
             {sortingOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
