@@ -1,7 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { TableCell, TableRow, Avatar, Grid } from "@material-ui/core";
+import {
+  TableCell,
+  TableRow,
+  Avatar,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import styles from "./styles";
@@ -16,10 +23,7 @@ const CustomRow = ({ classes, country }: Props) => {
     (state) => state.toggleNightMode.toggleNightMode
   );
   return (
-    <TableRow
-      classes={!isDarkMode ? { root: classes.row } : null}
-      key={country.country}
-    >
+    <TableRow classes={!isDarkMode ? { root: classes.row } : null}>
       <TableCell
         classes={{ root: classes.cell }}
         align="left"
@@ -28,7 +32,9 @@ const CustomRow = ({ classes, country }: Props) => {
       >
         <Grid container>
           <div className={classes.container}>
-            {country.country}
+            <Link className={classes.link} to="/country">
+              <Typography variant="body1">{country.country}</Typography>
+            </Link>
             {/* <Avatar
               classes={{ root: classes.avatar }}
               alt="flag"

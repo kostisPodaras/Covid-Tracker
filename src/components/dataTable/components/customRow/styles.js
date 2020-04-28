@@ -33,5 +33,8 @@ const styles = ({ palette, breakpoints }) => ({
   dailyDeaths: {
     color: palette.table.newDeaths,
   },
+  link: {
+    color: "inherit",
+  },
 });
 export default styles;

@@ -9,14 +9,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { fetchData } from "./redux/data/dataAction";
 import { fetchDailyData } from "./redux/daily-global-data/dailyDataAction";
 import { fetchCountries } from "./redux/countries/countriesAction";
-import {
-  CountryPicker,
-  Chart,
-  Cards,
-  Header,
-  DataTable,
-  CountryDetails,
-} from "./components";
+import { Home, Country } from "./routes";
+import { Header } from "./components";
 import theme from "./theme";
 
 import styles from "./styles";
@@ -41,11 +35,10 @@ const App = ({ classes }: Props) => {
       <Router>
         <Paper className={classes.container}>
           <Header />
-          <Cards />
-          <CountryPicker />
-          <Chart />
-          <DataTable />
-          <Route path="/country" component={CountryDetails} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/country" component={Country} />
+          </Switch>
         </Paper>
       </Router>
     </ThemeProvider>
