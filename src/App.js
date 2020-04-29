@@ -37,7 +37,7 @@ const App = ({ classes }: Props) => {
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/country" component={Country} />
+            <Route path="/country/:id" component={Country} />
           </Switch>
         </Paper>
       </Router>

@@ -9,27 +9,27 @@ import styles from "./styles";
 
 type Props = {
   classes: Object,
+  data: Array,
+  days: Array,
 };
 
-const BarChart = ({ classes }: Props) => {
+const BarChart = ({ classes, data, days }: Props) => {
   const { country } = useSelector((state) => state.selectedCountry);
 
   const barData = {
-    labels: ["Infected", "Recovered", "Deaths"],
+    labels: days,
     datasets: [
       {
         label: "Number of People",
-        backgroundColor: [palette.infected, palette.recovered, palette.deaths],
-        data: [
-          country.confirmed?.value,
-          country.recovered?.value,
-          country.deaths?.value,
-        ],
+        backgroundColor: palette.timeline,
+        data: data.map((el) => el.new_daily_cases),
       },
     ],
   };
-
-  return <Bar height={90} data={barData} />;
+  const options = {
+    maintainAspectRatio: false, // Don't maintain w/h ratio
+  };
+  return <Bar options={options} height={90} data={barData} />;
 };
 
 export default withStyles(styles)(BarChart);

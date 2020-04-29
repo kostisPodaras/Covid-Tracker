@@ -6,6 +6,7 @@ import countriesReducer from "./countries/countriesReducer";
 import selectedCountryReducer from "./selectedCountry/selectedCountryReducer";
 import uiReducer from "./UI/uiReducer";
 import sortingReducer from "./sorting-data/sortingDataReducer";
+import timelineReducer from "./countryTimeline/countryTimelineReducer";
 
 const rootReducer = combineReducers({
   globalData: dataReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   selectedCountry: selectedCountryReducer,
   toggleNightMode: uiReducer,
   dailyUpdates: sortingReducer,
+  timeline: timelineReducer,
 });
 
 export default rootReducer;

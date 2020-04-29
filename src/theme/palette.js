@@ -25,6 +25,7 @@ const palette = {
     recovered: "rgba(0, 255, 0, 0.7",
     deaths: "rgba(255, 0, 0, 0.7",
   },
+  timeline: "rgba(75,192,192,0.4)",
 };
 
 export default palette;

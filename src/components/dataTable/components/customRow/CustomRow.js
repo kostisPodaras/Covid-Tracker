@@ -32,7 +32,10 @@ const CustomRow = ({ classes, country }: Props) => {
       >
         <Grid container>
           <div className={classes.container}>
-            <Link className={classes.link} to="/country">
+            <Link
+              className={classes.link}
+              to={`/country/${country.countryInfo.iso2}`}
+            >
               <Typography variant="body1">{country.country}</Typography>
             </Link>
             {/* <Avatar
