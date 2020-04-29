@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Paper from "@material-ui/core/Paper";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
@@ -8,7 +9,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { fetchData } from "./redux/data/dataAction";
 import { fetchDailyData } from "./redux/daily-global-data/dailyDataAction";
 import { fetchCountries } from "./redux/countries/countriesAction";
-import { CountryPicker, Chart, Cards, Header, DataTable } from "./components";
+import { Home, Country } from "./routes";
+import { Header } from "./components";
 import theme from "./theme";
 
 import styles from "./styles";
@@ -30,13 +32,15 @@ const App = ({ classes }: Props) => {
 
   return (
     <ThemeProvider theme={theme(isDarkMode ? "dark" : "light")}>
-      <Paper className={classes.container}>
-        <Header />
-        <Cards />
-        <CountryPicker />
-        <Chart />
-        <DataTable />
-      </Paper>
+      <Router>
+        <Paper className={classes.container}>
+          <Header />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/country/:id" component={Country} />
+          </Switch>
+        </Paper>
+      </Router>
     </ThemeProvider>
   );
 };

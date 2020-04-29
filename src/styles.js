@@ -1,10 +1,3 @@
-const styles = ({ palette }) => ({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-});
+const styles = () => ({});
 
 export default styles;

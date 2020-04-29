@@ -21,9 +21,10 @@ const styles = ({ palette, breakpoints }) => ({
   cell: {
     borderRight: `1px solid ${palette.grey[500]}`,
     overflow: "hidden",
+    padding: 5,
 
-    [breakpoints.down("sm")]: {
-      paddingLeft: 0,
+    [breakpoints.up("sm")]: {
+      padding: 16,
     },
   },
   dailyCases: {
@@ -31,6 +32,9 @@ const styles = ({ palette, breakpoints }) => ({
   },
   dailyDeaths: {
     color: palette.table.newDeaths,
+  },
+  link: {
+    color: "inherit",
   },
 });
 export default styles;
