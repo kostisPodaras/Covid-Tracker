@@ -14,13 +14,11 @@ type Props = {
 };
 
 const BarChart = ({ classes, data, days }: Props) => {
-  const { country } = useSelector((state) => state.selectedCountry);
-
   const barData = {
     labels: days,
     datasets: [
       {
-        label: "Number of People",
+        label: "Daily Cases",
         backgroundColor: palette.timeline,
         data: data.map((el) => el.new_daily_cases),
       },

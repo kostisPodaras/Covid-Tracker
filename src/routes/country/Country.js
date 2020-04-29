@@ -17,7 +17,6 @@ type Props = {
 const Country = ({ classes, match }: Props) => {
   const dispatch = useDispatch();
   const { timeline } = useSelector((state) => state.timeline);
-  console.log(timeline[0]);
 
   useEffect(() => {
     dispatch(
