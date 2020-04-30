@@ -1,9 +1,9 @@
 const styles = () => ({
-  container: {
+  chartWrapper: {
     width: "90%",
     height: "40vh",
     marginBottom: 60,
-    margin: "auto",
+    // margin: "auto",
 
     "@media (max-width: 400px)": {
       width: "100%",

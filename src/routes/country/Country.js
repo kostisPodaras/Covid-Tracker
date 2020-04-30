@@ -26,16 +26,21 @@ const Country = ({ classes, match }: Props) => {
     );
   }, []);
   return (
-    <Grid
-      className={classes.container}
-      container
-      justify="center"
-      alignItems="center"
-    >
-      <BarChart
-        data={objectKeys(timeline[0])}
-        days={objectKeysToArray(timeline[0])}
-      />
+    <Grid container justify="center" alignItems="center">
+      <div className={classes.chartWrapper}>
+        <BarChart
+          data={objectKeys(timeline[0]).map((el) => el.new_daily_cases)}
+          days={objectKeysToArray(timeline[0])}
+          label="Daily Cases"
+        />
+      </div>
+      <div className={classes.chartWrapper}>
+        <BarChart
+          data={objectKeys(timeline[0]).map((el) => el.new_daily_deaths)}
+          days={objectKeysToArray(timeline[0])}
+          label="Daily Deaths"
+        />
+      </div>
     </Grid>
   );
 };

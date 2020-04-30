@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Bar } from "react-chartjs-2";
 
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -11,16 +10,17 @@ type Props = {
   classes: Object,
   data: Array,
   days: Array,
+  label: string,
 };
 
-const BarChart = ({ classes, data, days }: Props) => {
+const BarChart = ({ classes, data, days, label }: Props) => {
   const barData = {
     labels: days,
     datasets: [
       {
-        label: "Daily Cases",
+        label,
         backgroundColor: palette.timeline,
-        data: data.map((el) => el.new_daily_cases),
+        data,
       },
     ],
   };
